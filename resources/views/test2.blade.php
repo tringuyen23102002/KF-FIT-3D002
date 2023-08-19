@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
+    <?php
         $arrayPoint = [2, 5, 7, 8, 9];
         $arrayAnimal = ['Meo', 'Cho', 'Ca', 'Gau', 'Huu cao co'];
 
@@ -18,5 +18,19 @@
             echo ($key+1).".<span style='color:".$color.";'>$animal</span><br>"
         }
     ?>
+
+        @php
+            $arrayPoint = [2, 5, 7, 8, 9];
+            $arrayAnimal = ['Meo', 'Cho', 'Ca', 'Gau']
+        @endphp
+
+        @foreach ($arrayAnimal as $ket => $animal)
+            {{ $animal }}
+            @if ($loop->even)
+                {!! $loop->iteration . "<span style='color:red;'>" . $animal . '</span><br>' !!}
+            @elseif($loop->odd)
+                {!! $loop->iteration . "<span style='color:green;'>" . $animal . '</span><br>' !!}
+            @endif
+        @endforeach
 </body>
 </html>
